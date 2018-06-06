@@ -88,12 +88,12 @@
 				"description": "Describes the sql location"
 			}
 		},
-		"DevCollation": {
+		"Collation": {
 			"type": "string",
 			"minLength": 1,
 			"defaultValue": "SQL_Latin1_General_CP1_CI_AS"
 		},
-		"DevEdition": {
+		"Edition": {
 			"type": "string",
 			"defaultValue": "Basic",
 			"allowedValues": [
@@ -102,7 +102,7 @@
 				"Premium"
 			]
 		},
-		"DevRequestedServiceObjectiveName": {
+		"RequestedServiceObjectiveName": {
 			"type": "string",
 			"defaultValue": "Basic",
 			"allowedValues": [
@@ -233,10 +233,10 @@
 							"displayName": "SqlDatabase"
 						},
 						"properties": {
-							"collation": "[parameters('DevCollation')]",
-							"edition": "[parameters('DevEdition')]",
+							"collation": "[parameters('Collation')]",
+							"edition": "[parameters('Edition')]",
 							"maxSizeBytes": "1073741824",
-							"requestedServiceObjectiveName": "[parameters('DevRequestedServiceObjectiveName')]"
+							"requestedServiceObjectiveName": "[parameters('RequestedServiceObjectiveName')]"
 						}
 					}
 				]
