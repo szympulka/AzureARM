@@ -93,7 +93,7 @@
 			"minLength": 1,
 			"defaultValue": "SQL_Latin1_General_CP1_CI_AS"
 		},
-		"Edition": {
+		"SQLEdition": {
 			"type": "string",
 			"defaultValue": "Basic",
 			"allowedValues": [
@@ -102,7 +102,7 @@
 				"Premium"
 			]
 		},
-		"RequestedServiceObjectiveName": {
+		"SQLRequestedServiceObjectiveName": {
 			"type": "string",
 			"defaultValue": "Basic",
 			"allowedValues": [
@@ -234,9 +234,9 @@
 						},
 						"properties": {
 							"collation": "[parameters('Collation')]",
-							"edition": "[parameters('Edition')]",
+							"edition": "[parameters('SQLEdition')]",
 							"maxSizeBytes": "1073741824",
-							"requestedServiceObjectiveName": "[parameters('RequestedServiceObjectiveName')]"
+							"requestedServiceObjectiveName": "[parameters('SQLRequestedServiceObjectiveName')]"
 						}
 					}
 				]
