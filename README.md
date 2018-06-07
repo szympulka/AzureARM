@@ -4,8 +4,8 @@
 
 Deploy all resources to Azure
 
--WebApp
--Azure Storage
--Sql Server
--Sendgrid
--Azure Functions
+<p>-WebApp</p>
+<p>-Azure Storage</p>
+<p>-Sql Server</p>
+<p>-Sendgrid</p>
+<p>-Azure Functions</p>
