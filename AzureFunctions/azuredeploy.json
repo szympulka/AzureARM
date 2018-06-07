@@ -38,9 +38,6 @@
 				"Premium_LRS"
 			]
 		},
-		"WebName": {
-			"type": "string"
-		},
 		"StorageName": {
 			"type": "string"
 		},
