@@ -5,11 +5,15 @@
   <li>Azure Cosmo DB</li>
   <li>Azure Funtions</li>
   <li>Cognitive Services</li>
+                  <li>EventHub</li>
     <li>IOTHub</li>
+            <li>NotificationHub</li>
       <li>Sendgrid</li>
+                      <li>ServiceBus</li>
         <li>SqlServer</li>
         <li>Storage</li>
         <li>WebApp</li>
-        
+                <li>EventHub</li>
+
 
 </ul>
