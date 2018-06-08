@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"name": {
+			"type": "string"
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "WestEurope",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+
+			]
+		},
+		"skuName": {
+			"type": "string",
+			"allowedValues": [
+				"Basic",
+				"Standard"
+			]
+		},
+		"skuCapacity": {
+			"type": "int",
+			"minValue": "1",
+			"maxValue": "20"
+		},
+		"isAutoInflateEnabled": {
+			"type": "bool",
+			"metadata": {
+				"description": "Auto-Inflate automatically scales the number of Throughput Units assigned to your Event Hubs Namespace when your traffic exceeds the capacity of the Throughput Units assigned to it. You can specify a limit to which the Namespace will automatically scale. "
+			}
+		},
+		"maximumThroughputUnits": {
+			"type": "int",
+			"minValue": "0",
+			"maxValue": "20"
+		},
+		"kafkaEnabled": {
+			"type": "bool",
+			"metadata": {
+				"description": "Enable your Event Hubs Namespace to natively understand Apache Kafka's message protocol and APIs. Communicate with your Event Hubs as you would Kafka topics without ever changing your protocol clients or managing your clusters."
+			}
+		}
+	},
+	"variables": {},
+	"resources": [
+		{
+			"type": "Microsoft.EventHub/namespaces",
+			"sku": {
+				"name": "[parameters('skuName')]",
+				"tier": "[parameters('skuName')]",
+				"capacity": "[parameters('skuCapacity')]"
+			},
+			"name": "[parameters('name')]",
+			"apiVersion": "2018-01-01-preview",
+			"tags": {
+				"displayName": "EventHub"
+			},
+			"location": "[parameters('location')]",
+			"properties": {
+				"isAutoInflateEnabled": "[parameters('isAutoInflateEnabled')]",
+				"maximumThroughputUnits": "[parameters('maximumThroughputUnits')]",
+				"kafkaEnabled": "[parameters('kafkaEnabled')]"
+			}
+		}
+	],
+	"outputs": {}
+}
