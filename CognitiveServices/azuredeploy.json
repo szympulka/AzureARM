@@ -5,28 +5,28 @@
 		"name": {
 			"type": "string"
 		},
-			"location": {
-				"type": "string",
-				"defaultValue": "West Europe",
-				"allowedValues": [
-					"West Europe",
-					"North Europe",
-					"West US",
-					"West US2",
-					"West Central US"
-				]
-			},
+		"location": {
+			"type": "string",
+			"defaultValue": "West Europe",
+			"allowedValues": [
+				"West Europe",
+				"North Europe",
+				"West US",
+				"West US2",
+				"West Central US"
+			]
+		},
 		"apiType": {
-					"type": "string",
-					"allowedValues": [
-						"ContentModerator",
-						"Face",
-						"Bing.Autosuggest.v7",
-						"Bing.EntitySearch",
-						"Bing.Speech",
-						"Bing.SpellCheck.v7",
-						"LUIS"
-					]
+			"type": "string",
+			"allowedValues": [
+				"ContentModerator",
+				"Face",
+				"Bing.Autosuggest.v7",
+				"Bing.EntitySearch",
+				"Bing.Speech",
+				"Bing.SpellCheck.v7",
+				"LUIS"
+			]
 		},
 		"sku": {
 			"type": "string",
@@ -39,17 +39,20 @@
 	},
 	"variables": {},
 	"resources": [
-			{
-				"type": "Microsoft.CognitiveServices/accounts",
-				"sku": {
-					"name": "[parameters('sku')]"
-				},
-				"kind": "[parameters('apiType')]",
-				"name": "CognitiveServices",
-				"apiVersion": "2016-02-01-preview",
-				"location": "[parameters('location')]",
-				"properties": {}
-			}
+		{
+			"type": "Microsoft.CognitiveServices/accounts",
+			"sku": {
+				"name": "[parameters('sku')]"
+			},
+			"kind": "[parameters('apiType')]",
+			"tags": {
+				"displayName": "CognitiveServices"
+			},
+			"name": "[parameters('name')]",
+			"apiVersion": "2016-02-01-preview",
+			"location": "[parameters('location')]",
+			"properties": {}
+		}
 	],
 	"outputs": {}
 }

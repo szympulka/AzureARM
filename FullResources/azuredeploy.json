@@ -299,7 +299,10 @@
 					"name": "[parameters('CognitiveServicePrice')]"
 				},
 				"kind": "[parameters('CognitiveServiceApiType')]",
-				"name": "CognitiveServices",
+				"tags": {
+					"displayName": "CognitiveServices"
+				},
+				"name": "[parameters('CognitiveServiceName')]",
 				"apiVersion": "2016-02-01-preview",
 				"location": "[parameters('CognitiveServiceLocation')]",
 				"properties": {}
