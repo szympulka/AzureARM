@@ -29,7 +29,7 @@
 				"Standard"
 			]
 		},
-		"skuCapacity": {
+		"ThroughputUnits": {
 			"type": "int",
 			"minValue": "1",
 			"maxValue": "20"
@@ -59,7 +59,7 @@
 					"sku": {
 						"name": "[parameters('PricingTier')]",
 						"tier": "[parameters('PricingTier')]",
-						"capacity": "[parameters('skuCapacity')]"
+						"capacity": "[parameters('ThroughputUnits')]"
 					},
 			"name": "[parameters('name')]",
 			"apiVersion": "2018-01-01-preview",
