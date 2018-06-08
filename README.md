@@ -9,3 +9,13 @@ Deploy all resources to Azure
 <p>-Sql Server</p>
 <p>-Sendgrid</p>
 <p>-Azure Functions</p>
+<p>-CognitiveServices</p>
+<ul>
+  <li>Content Moderator</li>
+  <li>Face Api</li>
+  <li>Bing.Autosuggest.v7</li>
+  <li>Bing.EntitySearch</li>
+  <li>Bing.Speech</li>
+  <li>Bing.SpellCheck.v7</li>
+  <li>LUIS</li>
+</ul>
