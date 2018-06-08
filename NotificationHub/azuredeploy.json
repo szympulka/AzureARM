@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"namespaceLocation": {
+			"type": "string",
+			"defaultValue": "WestEurope",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+			]
+		},
+		"namespaceName": {
+			"type": "string"
+		},
+		"notificationHubName": {
+			"type": "string"
+		},
+			"PricingTier": {
+				"type": "string",
+				"defaultValue": "Free",
+				"allowedValues": [
+					"Free",
+					"Basic",
+					"Standard"
+				]
+			}
+	},
+	"variables": {},
+	"resources": [
+		{
+			"type": "Microsoft.NotificationHubs/namespaces",
+			"sku": {
+				"name": "[parameters('PricingTier')]"
+			},
+			"name": "[parameters('namespaceName')]",
+			"tags": {
+				"displayName": "namespaceEventHub"
+			},
+			"apiVersion": "2017-04-01",
+			"location": "[parameters('namespaceLocation')]",
+			"properties": {
+				"name": "[parameters('namespaceName')]",
+				"region": "[parameters('namespaceLocation')]",
+				"namespaceType": 1
+			},
+			"resources": [
+				{
+					"type": "notificationHubs",
+					"sku": {
+						"name": "[parameters('PricingTier')]"
+					},
+					"tags": {
+						"displayName": "notificationHubName"
+					},
+					"name": "[parameters('notificationHubName')]",
+					"apiVersion": "2017-04-01",
+					"location": "[parameters('namespaceLocation')]",
+					"properties": {
+						"name": "[parameters('notificationHubName')]"
+					},
+					"dependsOn": [
+						"[concat('Microsoft.NotificationHubs/namespaces/', parameters('namespaceName'))]"
+					]
+				}
+			]
+		}
+	],
+	"outputs": {}
+}

@@ -23,6 +23,8 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "IOTHub", "IOTHub\IOTHub.dep
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "EventHub", "EventHub\EventHub.deployproj", "{03EFB2AE-2616-4A24-945E-04ECF2066AB8}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "NotificationHub", "NotificationHub\NotificationHub.deployproj", "{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{03EFB2AE-2616-4A24-945E-04ECF2066AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03EFB2AE-2616-4A24-945E-04ECF2066AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03EFB2AE-2616-4A24-945E-04ECF2066AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
