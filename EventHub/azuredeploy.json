@@ -22,7 +22,7 @@
 
 			]
 		},
-		"skuName": {
+		"PricingTier": {
 			"type": "string",
 			"allowedValues": [
 				"Basic",
@@ -56,11 +56,11 @@
 	"resources": [
 		{
 			"type": "Microsoft.EventHub/namespaces",
-			"sku": {
-				"name": "[parameters('skuName')]",
-				"tier": "[parameters('skuName')]",
-				"capacity": "[parameters('skuCapacity')]"
-			},
+					"sku": {
+						"name": "[parameters('PricingTier')]",
+						"tier": "[parameters('PricingTier')]",
+						"capacity": "[parameters('skuCapacity')]"
+					},
 			"name": "[parameters('name')]",
 			"apiVersion": "2018-01-01-preview",
 			"tags": {
