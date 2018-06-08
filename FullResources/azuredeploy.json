@@ -2,10 +2,10 @@
 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-			"ServicePlanName": {
-				"type": "string",
-				"minLength": 1
-			},
+		"ServicePlanName": {
+			"type": "string",
+			"minLength": 1
+		},
 		"ServicePlanSkuName": {
 			"type": "string",
 			"defaultValue": "F1",
@@ -120,6 +120,40 @@
 		},
 		"FunctionAppName": {
 			"type": "string"
+		},
+		"CognitiveServiceName": {
+			"type": "String"
+		},
+		"CognitiveServiceLocation": {
+			"type": "string",
+			"defaultValue": "West Europe",
+			"allowedValues": [
+				"West Europe",
+				"North Europe",
+				"West US",
+				"West US2",
+				"West Central US"
+			]
+		},
+		"CognitiveServiceApiType": {
+			"type": "String",
+			"allowedValues": [
+				"ContentModerator",
+				"Face",
+				"Bing.Autosuggest.v7",
+				"Bing.EntitySearch",
+				"Bing.Speech",
+				"Bing.SpellCheck.v7",
+				"LUIS"
+			]
+		},
+		"CognitiveServicePrice": {
+			"type": "String",
+			"defaultValue": "F0",
+			"allowedValues": [
+				"F0",
+				"S0"
+			]
 		}
 
 	},
@@ -194,53 +228,53 @@
 			},
 			"type": "Sendgrid.Email/accounts"
 		},
-			{
-				"name": "[parameters('sql-server-Name')]",
-				"type": "Microsoft.Sql/servers",
-				"location": "[parameters('SqlLocation')]",
-				"apiVersion": "2014-04-01-preview",
-				"dependsOn": [],
-				"tags": {
-					"displayName": "SqlServer"
-				},
-				"properties": {
-					"administratorLogin": "[parameters('sql-server-AdminLogin')]",
-					"administratorLoginPassword": "[parameters('sql-server-AdminPassword')]"
-				},
-				"resources": [
-									{
-										"name": "AllowAllWindowsAzureIps",
-										"type": "firewallrules",
-										"location": "[parameters('SqlLocation')]",
-										"apiVersion": "2014-04-01-preview",
-										"dependsOn": [
-											"[resourceId('Microsoft.Sql/servers', parameters('sql-server-Name'))]"
-										],
-										"properties": {
-											"startIpAddress": "0.0.0.0",
-											"endIpAddress": "0.0.0.0"
-										}
-									},
-					{
-						"name": "[parameters('SqlDatabaseName')]",
-						"type": "databases",
-						"location": "[parameters('SqlLocation')]",
-						"apiVersion": "2014-04-01-preview",
-						"dependsOn": [
-							"[resourceId('Microsoft.Sql/servers', parameters('sql-server-Name'))]"
-						],
-						"tags": {
-							"displayName": "SqlDatabase"
-						},
-						"properties": {
-							"collation": "[parameters('Collation')]",
-							"edition": "[parameters('SQLEdition')]",
-							"maxSizeBytes": "1073741824",
-							"requestedServiceObjectiveName": "[parameters('SQLRequestedServiceObjectiveName')]"
-						}
-					}
-				]
+		{
+			"name": "[parameters('sql-server-Name')]",
+			"type": "Microsoft.Sql/servers",
+			"location": "[parameters('SqlLocation')]",
+			"apiVersion": "2014-04-01-preview",
+			"dependsOn": [],
+			"tags": {
+				"displayName": "SqlServer"
 			},
+			"properties": {
+				"administratorLogin": "[parameters('sql-server-AdminLogin')]",
+				"administratorLoginPassword": "[parameters('sql-server-AdminPassword')]"
+			},
+			"resources": [
+				{
+					"name": "AllowAllWindowsAzureIps",
+					"type": "firewallrules",
+					"location": "[parameters('SqlLocation')]",
+					"apiVersion": "2014-04-01-preview",
+					"dependsOn": [
+						"[resourceId('Microsoft.Sql/servers', parameters('sql-server-Name'))]"
+					],
+					"properties": {
+						"startIpAddress": "0.0.0.0",
+						"endIpAddress": "0.0.0.0"
+					}
+				},
+				{
+					"name": "[parameters('SqlDatabaseName')]",
+					"type": "databases",
+					"location": "[parameters('SqlLocation')]",
+					"apiVersion": "2014-04-01-preview",
+					"dependsOn": [
+						"[resourceId('Microsoft.Sql/servers', parameters('sql-server-Name'))]"
+					],
+					"tags": {
+						"displayName": "SqlDatabase"
+					},
+					"properties": {
+						"collation": "[parameters('Collation')]",
+						"edition": "[parameters('SQLEdition')]",
+						"maxSizeBytes": "1073741824",
+						"requestedServiceObjectiveName": "[parameters('SQLRequestedServiceObjectiveName')]"
+					}
+				}
+			]
+		},
 		{
 			"apiVersion": "2015-08-01",
 			"type": "Microsoft.Web/sites",
@@ -258,7 +292,18 @@
 				"[resourceId('Microsoft.Web/serverfarms', parameters('ServicePlanName'))]",
 				"[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageName'))]"
 			]
-		}
+		},
+			{
+				"type": "Microsoft.CognitiveServices/accounts",
+				"sku": {
+					"name": "[parameters('CognitiveServicePrice')]"
+				},
+				"kind": "[parameters('CognitiveServiceApiType')]",
+				"name": "CognitiveServices",
+				"apiVersion": "2016-02-01-preview",
+				"location": "[parameters('CognitiveServiceLocation')]",
+				"properties": {}
+			}
 	],
 	"outputs": {}
 }
