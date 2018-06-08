@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"name": {
+			"type": "string"
+		},
+		"PricingTier": {
+			"type": "string",
+			"defaultValue": "Basic",
+			"allowedValues": [
+				"Basic",
+				"Standard",
+				"Premium"
+			]
+		},
+		"Location": {
+			"type": "string",
+			"defaultValue": "WestEurope",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+			]
+		}
+	},
+	"variables": {
+		"skuCapacity":  "1",
+	},
+	"resources": [
+		{
+			"type": "Microsoft.ServiceBus/namespaces",
+					"sku": {
+						"name": "[parameters('PricingTier')]",
+						"tier": "[parameters('PricingTier')]",
+						"capacity": "[variables('skuCapacity')]"
+					},
+			"name": "[parameters('name')]",
+			"apiVersion": "2017-04-01",
+			"location": "[parameters('location')]"
+		}
+	],
+	"outputs": {}
+}

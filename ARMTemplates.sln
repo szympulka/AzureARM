@@ -25,6 +25,8 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "EventHub", "EventHub\EventH
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "NotificationHub", "NotificationHub\NotificationHub.deployproj", "{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ServiceBus", "ServiceBus\ServiceBus.deployproj", "{A636B899-2C2D-4B51-8222-D67FBA7ED894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1B9AA5F-673A-4B3D-957E-324355AB0DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
