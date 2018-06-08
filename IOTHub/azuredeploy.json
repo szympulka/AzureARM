@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"name": {
+			"type": "String"
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "WestEurope",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+
+			]
+		},
+			"Pricing": {
+				"type": "string",
+				"defaultValue": "F1",
+				"allowedValues": [
+					"F1",
+					"B1",
+					"B2",
+					"B3",
+					"S1",
+					"S2",
+					"S3",
+			]
+			},
+			"NumberOfPricingUnits": {
+				"type": "int",
+				"minValue": "1",
+				"maxValue": "50",
+							"metadata": {
+								"description": "Each IoT Hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that you can send."
+							}
+			},
+			"DeviceToCloudPartitions": {
+				"type": "int",
+				"minValue": "2",
+				"maxValue": "32",
+							"metadata": {
+								"description": "The number of partitions relates the device-to-cloud messages to the number of simultaneous readers of these messages. Most IoT hubs only need four partitions."
+							}
+			},
+	},
+	"variables": {},
+	"resources": [
+			{
+				"type": "Microsoft.Devices/IotHubs",
+				"sku": {
+					"name": "[parameters('Pricing')]",
+					"capacity": "[parameters('NumberOfPricingUnits')]"
+				},
+				"name": "[parameters('name')]",
+				"tags": {
+					"displayName": "IOTHub"
+				},
+				"apiVersion": "2018-04-01",
+				"location": "[parameters('location')]",
+				"properties": {
+					"eventHubEndpoints": {
+						"events": {
+							"retentionTimeInDays": 1,
+							"partitionCount": "[parameters('DeviceToCloudPartitions')]"
+						}
+					},
+					"features": "None"
+				}
+			}
+	],
+	"outputs": {}
+}
