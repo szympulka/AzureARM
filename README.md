@@ -13,6 +13,7 @@
         <li>SqlServer</li>
         <li>Storage</li>
         <li>WebApp</li>
+        <li>AzureSearch</li>
                 <li>EventHub</li>
 
 

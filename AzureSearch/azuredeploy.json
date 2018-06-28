@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"serviceName": {
+			"type": "string"
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "WestEurope",
+			"allowedValues": [
+				"NorthEurope",
+				"WestEurope",
+				"EastUS",
+				"WestUS",
+				"NorthUS",
+				"CentralUS",
+				"JapanEast",
+				"JapanWest",
+				"UkWest",
+				"EastAsia"
+
+			]
+		},
+		"PricingTier": {
+			"type": "string",
+					"allowedValues": [
+						"free",
+						"basic",
+						"standard",
+						"standard1",
+						"standard2",
+						"standard3"
+					]
+		},
+		"hostingMode": {
+			"type": "string",
+			"allowedValues": [
+				"Default",
+				"HighDensity"
+			]
+		}
+
+	},
+	"variables": {
+
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Search/searchServices",
+			"sku": {
+				"name": "[parameters('PricingTier')]"
+			},
+			"name": "[parameters('serviceName')]",
+			"apiVersion": "2015-08-19",
+			"location": "[parameters('location')]",
+			"properties": {
+				"replicaCount": 1,
+				"partitionCount": 1,
+				"hostingMode": "[parameters('hostingMode')]"
+			}
+		}
+	],
+	"outputs": {}
+}
