@@ -15,6 +15,7 @@
         <li>WebApp</li>
         <li>AzureSearch</li>
                 <li>EventHub</li>
+                <li>AzureMaps</li>
 
 
 </ul>

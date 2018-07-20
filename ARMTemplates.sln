@@ -27,6 +27,8 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "NotificationHub", "Notifica
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ServiceBus", "ServiceBus\ServiceBus.deployproj", "{A636B899-2C2D-4B51-8222-D67FBA7ED894}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureMaps", "AzureMaps\AzureMaps.deployproj", "{43456530-3A8B-47ED-8ABA-2E27070E5C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A636B899-2C2D-4B51-8222-D67FBA7ED894}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
