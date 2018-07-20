@@ -154,10 +154,17 @@
 				"F0",
 				"S0"
 			]
+		},
+		"AzureMapsName": {
+			"type": "string",
+			"metadata": {
+				"description": "Azure Maps"
+			}
 		}
 
 	},
 	"variables": {
+		"pricingSpec": "S0"
 	},
 	"resources": [
 		{
@@ -293,20 +300,30 @@
 				"[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageName'))]"
 			]
 		},
-			{
-				"type": "Microsoft.CognitiveServices/accounts",
-				"sku": {
-					"name": "[parameters('CognitiveServicePrice')]"
-				},
-				"kind": "[parameters('CognitiveServiceApiType')]",
-				"tags": {
-					"displayName": "CognitiveServices"
-				},
-				"name": "[parameters('CognitiveServiceName')]",
-				"apiVersion": "2016-02-01-preview",
-				"location": "[parameters('CognitiveServiceLocation')]",
-				"properties": {}
-			}
+		{
+			"type": "Microsoft.CognitiveServices/accounts",
+			"sku": {
+				"name": "[parameters('CognitiveServicePrice')]"
+			},
+			"kind": "[parameters('CognitiveServiceApiType')]",
+			"tags": {
+				"displayName": "CognitiveServices"
+			},
+			"name": "[parameters('CognitiveServiceName')]",
+			"apiVersion": "2016-02-01-preview",
+			"location": "[parameters('CognitiveServiceLocation')]",
+			"properties": {}
+		},
+		{
+			"type": "Microsoft.Maps/accounts",
+			"sku": {
+				"name": "[variables('pricingSpec')]"
+			},
+			"name": "[parameters('AzureMapsName')]",
+			"apiVersion": "2018-05-01",
+			"location": "global",
+			"properties": {}
+		}
 	],
 	"outputs": {}
 }
