@@ -29,6 +29,8 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ServiceBus", "ServiceBus\Se
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureMaps", "AzureMaps\AzureMaps.deployproj", "{43456530-3A8B-47ED-8ABA-2E27070E5C64}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "LogicApp", "LogicApp\LogicApp.deployproj", "{0008E9A9-B4C4-479B-B401-459EEB686D03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43456530-3A8B-47ED-8ABA-2E27070E5C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

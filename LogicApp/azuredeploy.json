@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "WestEurope",
+      "allowedValues": [
+        "NorthEurope",
+        "WestEurope",
+        "EastUS",
+        "WestUS",
+        "NorthUS",
+        "CentralUS",
+        "JapanEast",
+        "JapanWest",
+        "UkWest",
+        "EastAsia"
+
+      ]
+    },
+  },
+  "variables": {
+    "logicAppApiVersion": "2017-07-01",
+    "workflowSchema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "logicAppState": "Enabled",
+    "definition": "[concat('{\"contentVersion\":\"1.0.0.0\",\"parameters\":{},\"actions\":{},\"triggers\":{},\"outputs\":{},\"$schema\":\"', variables('workflowSchema'), '\"}')]",
+    "parameters": {},
+    "tags": {},
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('Name')]",
+      "apiVersion": "[variables('logicAppApiVersion')]",
+      "location": "[parameters('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "definition": "[json(variables('definition'))]",
+        "parameters": "[variables('parameters')]",
+        "state": "[variables('logicAppState')]"
+      }
+    }
+  ],
+  "outputs": {}
+}

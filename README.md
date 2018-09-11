@@ -16,6 +16,6 @@
         <li>AzureSearch</li>
                 <li>EventHub</li>
                 <li>AzureMaps</li>
-
+<li>LogicApp</li>
 
 </ul>
