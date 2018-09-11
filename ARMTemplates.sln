@@ -31,6 +31,10 @@ Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureMaps", "AzureMaps\Azur
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "LogicApp", "LogicApp\LogicApp.deployproj", "{0008E9A9-B4C4-479B-B401-459EEB686D03}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "BackupAndSiteRecovery(OMS)", "BackupAndSiteRecovery(OMS)\BackupAndSiteRecovery(OMS).deployproj", "{40AAE5E4-F51E-46DB-A865-E21B265A231C}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "MediaService", "MediaService\MediaService.deployproj", "{79AC1914-0512-4D32-9ACB-A92145C78EC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0008E9A9-B4C4-479B-B401-459EEB686D03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AAE5E4-F51E-46DB-A865-E21B265A231C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AAE5E4-F51E-46DB-A865-E21B265A231C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AAE5E4-F51E-46DB-A865-E21B265A231C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AAE5E4-F51E-46DB-A865-E21B265A231C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79AC1914-0512-4D32-9ACB-A92145C78EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79AC1914-0512-4D32-9ACB-A92145C78EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79AC1914-0512-4D32-9ACB-A92145C78EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79AC1914-0512-4D32-9ACB-A92145C78EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

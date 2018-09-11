@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "WestEurope",
+      "allowedValues": [
+        "NorthEurope",
+        "WestEurope",
+        "EastUS",
+        "WestUS",
+        "NorthUS",
+        "CentralUS",
+        "JapanEast",
+        "JapanWest",
+        "UkWest",
+        "EastAsia"
+
+      ]
+    },
+    "storageName": {
+      "type": "string"
+    },
+    "storageType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    }
+  },
+  "variables": {
+    "storageKind": "Storage"
+  },
+
+  "resources": [
+    {
+      "type": "microsoft.media/mediaservices",
+      "name": "[parameters('name')]",
+      "apiVersion": "2015-10-01",
+      "location": "[parameters('location')]",
+      "properties": {
+        "storageAccounts": [
+          {
+            "isPrimary": true,
+            "id": "[resourceId('microsoft.storage/storageaccounts/', parameters('storageName'))]"
+          }
+        ]
+      },
+      "dependsOn": [
+        "[concat('microsoft.storage/storageaccounts/', parameters('storageName'))]"
+      ]
+    },
+    {
+      "type": "microsoft.storage/storageaccounts",
+      "sku": {
+        "name": "[parameters('storageType')]"
+      },
+      "kind": "[variables('storageKind')]",
+      "name": "[parameters('storageName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[parameters('location')]"
+    }
+  ]
+}

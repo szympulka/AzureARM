@@ -4,18 +4,20 @@
 <ul>
   <li>Azure Cosmo DB</li>
   <li>Azure Funtions</li>
+                  <li>AzureMaps</li>
+        <li>AzureSearch</li>
+        <li>BackupAndSiteRecovery(OMS)</li>
   <li>Cognitive Services</li>
                   <li>EventHub</li>
     <li>IOTHub</li>
+    <li>LogicApp</li>
+    <li>MediaService</li>
             <li>NotificationHub</li>
       <li>Sendgrid</li>
                       <li>ServiceBus</li>
         <li>SqlServer</li>
         <li>Storage</li>
         <li>WebApp</li>
-        <li>AzureSearch</li>
                 <li>EventHub</li>
-                <li>AzureMaps</li>
-<li>LogicApp</li>
 
 </ul>
